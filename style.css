@@ -54,7 +54,7 @@ footer {background: #aaa;color:white;}
   padding: 0;
 
   overflow: hidden;
-  width: 150px;
+  width: 250px;
   height: 40px;
 
   border-width: 0;
@@ -112,6 +112,7 @@ footer {background: #aaa;color:white;}
 }
 p {
 font-family: 'Open Sans', sans-serif;
+font-size: 12px;
 }
 h1 {
     font-family: 'Open Sans', sans-serif;
@@ -125,4 +126,8 @@ h1 {
 #button_container{
 float: left;
 clear: left;
+}
+.dimple-custom-axis-titledimple-axis-y{
+  font-size:19px;
+}
 }

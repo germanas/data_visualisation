@@ -27,29 +27,32 @@
   see the distribution by time.
   </p>
   <div id="button_container">
-  <button id="toggle">Press to add/remove line</button>
+  <button id="toggle">Press to add/remove lines for easier interpretation</button>
   </div>
   </div>
   <script type="text/javascript">
-  var svg = dimple.newSvg("#chartContainer", 1200, 430);
+  var svg = dimple.newSvg("#chartContainer", 1100, 430);
   d3.csv("clean_data.csv", function(data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(60, 10, 980, 330)
+      myChart.setBounds(60, 10, 880, 330)
       var x = myChart.addCategoryAxis("x", "time");
       var y = myChart.addMeasureAxis("y", "total_score_means");
       var s = myChart.addSeries("country", dimple.plot.bubble);
-      var myLegend = myChart.addLegend(750, 120, 60, 300, "Right");
-      
-      y.overrideMin = -30;  
-      y.overrideMax = 240; 
+      myChart.width = 1000;
+      var myLegend = myChart.addLegend(950, 50, 60, 300, "Right");
+      svg.append("text")
+        .attr("x", 500)             
+        .attr("y", 30)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Average comments score vs Time (hours)");
+
+      y.overrideMin = -20;  
+      y.overrideMax = 250; 
       x.addOrderRule("time", false);
       var toggle = false;
       myChart.draw();
-
-      //Change titles
-      x.titleShape.text("Hours in a day");
-      y.titleShape.text("Average of total upvotes");
-      myLegend.height = 100;
 
       // This is a critical step.  By doing this we orphan the legend. This
       // means it will not respond to graph updates.  Without this the legend
@@ -64,14 +67,16 @@
         .data(["Click legend to","show/hide countries:"])
         .enter()
         .append("text")
-        .attr("x", 750)
-        .attr("y", function (d, i) { return 90 + i * 14; })
+        .attr("x", 960)
+        .attr("y", function (d, i) { return 30 + i * 14; })
         .style("font-family", "sans-serif")
         .style("font-size", "10px")
         .style("color", "Black")
         .text(function (d) { return d; });
+      
+        //.text("Average comments score");
 
-        // Get a unique list of Owner values to use when filtering
+        // Get a unique list of country values to use when filtering
         var filterValues = dimple.getUniqueValues(data, "country");
         // Get all the rectangles from our now orphaned legend
         myLegend.shapes.selectAll("rect")
@@ -107,9 +112,7 @@
 
 //Toggle function which toggles the countries series with line graph
 d3.select('#toggle').on('click', function(){
-  
   var index;
-  
   if(toggle){
     for(var i = 0; i < myChart.series.length; i++){
       if(myChart.series[i] === s1){
@@ -119,21 +122,17 @@ d3.select('#toggle').on('click', function(){
     }    
     d3.selectAll(".dimple-series-" + i).remove();;
     myChart.series.splice(index, 1);
+
   }else{
     s1 = myChart.addSeries('country', dimple.plot.line);
   }
+
   myChart.draw(0, false);
   toggle = !toggle;
 });
 
   });
-
-
-
-
 </script>
 </article>
-
-
 </div>
 <div id="footer"></div>
