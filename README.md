@@ -14,6 +14,10 @@ The data that I used for this project consists of about 100 observations with th
 
 For this project I will try to visualise what group of people tend to be agresive trolls and what kind of people gets most support from the community.
 
+## What are my findings.
+
+After I created my visualisation, I could clearly separate different types of people by just looking at the chart. From the chart that i made, we can see that the most positive people comment between 00:00 and 06:00. The most negative people tend to comment at daytime from around 09:00 until 23:00. The most positive countries are Norway, Great Britain and Sweden. The most negative countries being Ireland and Lithuania. From this information we could now start building labels for machine learning algorithm, to separate positive people, neutral and trolls. 
+
 ## Design
 
 In this part I will describe my design decisions. I will go step by step from my initial desition to final visualisation. 
