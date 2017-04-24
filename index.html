@@ -3,8 +3,8 @@
 <head>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="flex-container">
@@ -26,6 +26,12 @@
   The chart is interactive. By pressing on the countries legend you can compare your selection. Pressing the green button will connect the dots with lines to better
   see the distribution by time.
   </p>
+  <h2>
+   Conclusion
+  </h2>
+  <p>
+  From the chart below, we can see that the most positive people comment between 00:00 and 06:00. The most negative people tend to comment at daytime from around 09:00 until 23:00. The most positive countries are Norway, Great Britain and Sweden. The most negative countries being Ireland and Lithuania. From this information we could now start building labels for machine learning algorithm, to separate positive people, neutral and trolls.
+  </p>
   <div id="button_container">
   <button id="toggle">Press to add/remove lines for easier interpretation</button>
   </div>
@@ -34,12 +40,12 @@
   var svg = dimple.newSvg("#chartContainer", 1100, 430);
   d3.csv("clean_data.csv", function(data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(60, 10, 880, 330)
+      myChart.setBounds(60, 10, 1000, 330)
       var x = myChart.addCategoryAxis("x", "time");
       var y = myChart.addMeasureAxis("y", "total_score_means");
       var s = myChart.addSeries("country", dimple.plot.bubble);
-      myChart.width = 1000;
-      var myLegend = myChart.addLegend(950, 50, 60, 300, "Right");
+      myChart.width = 1040;
+      var myLegend = myChart.addLegend(1000, 50, 60, 300, "Right");
       svg.append("text")
         .attr("x", 500)             
         .attr("y", 30)

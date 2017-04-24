@@ -118,6 +118,11 @@ h1 {
     font-family: 'Open Sans', sans-serif;
 }
 
+h2 {
+
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+}
 .dimple-axis .dimple-title .dimple-custom-axis-titledimple-axis-y{
   stroke:white;
   background: red;
