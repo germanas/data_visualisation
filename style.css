@@ -1,14 +1,15 @@
 body,html{
     height:100%;
     margin:0; padding:0;
-}
+    background-color: whitesmoke;
+  }
 .article {
     text-align: left;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-
+    background-color: white;
 }
 .flex-container {
     display: -webkit-flex;
@@ -49,7 +50,7 @@ footer {background: #aaa;color:white;}
     margin-top: -50px;
     height: 50px;
     width: auto;
-    background: gray;
+    background: whitesmoke;
 }
 #toggle {
   position: relative;
@@ -117,7 +118,7 @@ footer {background: #aaa;color:white;}
 }
 p {
 font-family: 'Open Sans', sans-serif;
-font-size: 12px;
+font-size: 13px;
 }
 h1 {
     font-family: 'Open Sans', sans-serif;
