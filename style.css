@@ -2,7 +2,14 @@ body,html{
     height:100%;
     margin:0; padding:0;
 }
+.article {
+    text-align: left;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 
+}
 .flex-container {
     display: -webkit-flex;
     display: flex;  
@@ -17,9 +24,7 @@ body,html{
     flex: 1 100%;
 }
 
-.article {
-    text-align: left;
-}
+
 
 header {background: black;color:white;}
 footer {background: #aaa;color:white;}
